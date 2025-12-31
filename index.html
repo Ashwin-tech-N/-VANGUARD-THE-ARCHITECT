@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanguard | The Architect</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loader">
+        <div class="shockwave"></div>
+        <div class="sword-container">
+            <svg class="sword-svg" viewBox="0 0 100 250">
+                <rect x="35" y="190" width="30" height="5" fill="none" />
+                <rect x="45" y="195" width="10" height="40" fill="none" />
+                <circle cx="50" cy="240" r="5" fill="none" />
+                <path d="M50 190 L35 190 L35 180 L45 170 L45 10 L50 0 L55 10 L55 170 L65 180 L65 190 L50 190" />
+                <line x1="50" y1="20" x2="50" y2="160" />
+            </svg>
+        </div>
+        <div class="text-label" style="opacity: 0; animation: pulse 1s infinite; margin-top: 2rem;">Forging System</div>
+        <div class="mist-loader"></div>
+    </div>
+
+    <div id="ember-container"></div>
+    
+    <div class="scroll-waves-container">
+        <svg class="scroll-wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax-waves">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(148, 163, 184, 0.1)" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(71, 85, 105, 0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(30, 41, 59, 0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(15, 23, 42, 0.8)" />
+            </g>
+        </svg>
+    </div>
+
+    <div id="messenger-sword-container">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="spark spark-appear" style="--tx: -30px; --ty: -30px; top: 40%; left: 40%;"></div>
+            <div class="spark spark-appear" style="--tx: 30px; --ty: -30px; top: 40%; left: 60%;"></div>
+            <div class="spark spark-appear" style="--tx: -20px; --ty: -50px; top: 30%; left: 45%;"></div>
+            <div class="spark spark-appear" style="--tx: 20px; --ty: -50px; top: 30%; left: 55%;"></div>
+            <div class="spark spark-appear" style="--tx: 0px; --ty: -60px; top: 20%; left: 50%;"></div>
+        </div>
+        <svg viewBox="0 0 100 250" class="w-full" style="height: 100px; filter: drop-shadow(0 0 15px rgba(203,213,225,0.5));">
+            <defs>
+                <linearGradient id="flyBladeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#334155;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#e2e8f0;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <rect x="30" y="0" width="40" height="6" fill="#64748b" /> 
+            <rect x="42" y="6" width="16" height="50" fill="#475569" /> 
+            <path d="M20 56 L80 56 L80 64 L50 70 L20 64 Z" fill="#64748b" /> 
+            <path d="M35 64 L65 64 L65 230 L50 250 L35 230 Z" fill="url(#flyBladeGrad)" />
+            <line x1="50" y1="70" x2="50" y2="200" stroke="#0f1115" stroke-width="2" />
+        </svg>
+    </div>
+
+    <nav id="main-nav" class="fixed inset-0 w-full z-50">
+        <div class="nav-content">
+            <div class="brand">VANGUARD<span></span></div>
+            <div class="nav-links hidden-mobile">
+                <a href="#about">LEGACY</a>
+                <a href="#projects">ARMORY</a>
+                <a href="#certificates">CREDENTIALS</a>
+                <a href="#arsenal">ARSENAL</a>
+                <a href="#contact">ALLIANCE</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="relative h-screen w-full flex flex-col justify-center items-center bg-grid" style="position: relative;">
+        <div class="relative z-10 text-center" style="padding: 0 1rem;">
+            <p class="hero-element text-label">The North Remembers Good Code</p>
+            <h1 class="text-hero">
+                <span class="ice-text" style="display:block;">ASHWIN</span>
+            </h1>
+            <div class="blade-swipe"></div>
+            <p class="hero-element text-sub">
+                Full-Stack Sovereign. UI/UX Strategist. <br>Building digital empires from the void.
+            </p>
+            
+            <div class="mt-12 hero-element" style="margin-top: 3rem;">
+                <a href="#projects" class="frost-btn">Enter The Keep</a>
+            </div>
+        </div>
+        
+        <div class="hero-element absolute" style="bottom: 2rem; opacity: 0.5; animation: bounce 2s infinite;">
+            <span style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;">Descend</span>
+            <svg class="icon" style="display: block; margin: 0.5rem auto;" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        
+        <section id="about" class="section-padding stone-border-box">
+            <div class="container">
+                <div class="grid-2 items-center">
+                    <div class="reveal-up relative">
+                        <div class="luxury-img-container group">
+                            <div class="vignette-overlay"></div>
+                            <img src="images/profile.jpg" alt="profile.jpg" class="placeholder-img">
+                        </div>
+                    </div>
+                    <div class="reveal-up" style="transition-delay: 0.1s;">
+                        <h2 class="rune-reveal" style="font-size: 3rem; color: #e2e8f0; margin-bottom: 2rem;">
+                            <span style="color: #64748b; font-size: 1.5rem;">01.</span> Origin
+                        </h2>
+                        <div class="blade-swipe" style="margin: 0 0 2rem 0;"></div>
+                        <p class="text-sub" style="margin: 0 0 1.5rem 0; max-width: 100%;">
+                            I approach engineering with the mindset of a builder, not a hobbyist.
+                            As an engineering student, I focus on designing and delivering complete, functional systems—placing execution, structure, and reliability above experimentation without purpose.
+                        <p class="text-sub" style="margin: 0 0 2rem 0; max-width: 100%;">
+                            I learn new technologies with intent, not curiosity alone. Every tool I study is evaluated by how effectively it strengthens a project, improves performance, or simplifies long-term maintenance. My priority is not to start many ideas, but to carry the right ones through planning, implementation, and completion.<br>
+
+                            In my work, unfinished projects are failure states. I value discipline, ownership, and follow-through, and I hold myself accountable to shipping solutions that work, scale, and endure.
+                        
+                        <div class="grid-2" style="gap: 2rem; margin-top: 2rem;">
+                            <div>
+                                <h4 class="text-label" style="border-bottom: 1px solid #1e293b; padding-bottom: 0.5rem; display: inline-block;">Mastery</h4>
+                                <ul style="color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <li>HTML /CSS /JS</li>
+                                    <li>Python</li>
+                                    <li>API Integration</li>
+                                    <li>Database Management</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-label" style="border-bottom: 1px solid #1e293b; padding-bottom: 0.5rem; display: inline-block;">Tactics</h4>
+                                <ul style="color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <li>System Design</li>
+                                    <li>UI Psychology</li>
+                                    <li>Performance Tuning</li>
+                                    <li>Deep work</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section-padding" style="overflow: hidden;">
+            <div class="text-center reveal-up" style="margin-bottom: 6rem;">
+                <h2 class="rune-reveal" style="font-size: 4rem; color: #e2e8f0; margin-bottom: 1rem;">The Armory</h2>
+                <p class="text-label">Forged in Fire and Logic</p>
+                <div class="blade-swipe" style="width: 200px; margin: 0 auto;"></div>
+            </div>
+
+            <div style="width: 100%; position: relative;">
+                <div class="horizontal-scroll scroll-pad-portrait perspective-container">
+                    
+                    <a href="https://github.com/Ashwin-tech-N/ACODER" target="company" class="group scroll-card armory-card">
+                        <div class="luxury-img-container">
+                            <img src="images/image2.png" alt="image2" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.5rem; color: #e2e8f0; margin-bottom: 0.5rem;">🚀 ACODER</h3>
+                                <p class="card-description">ACODER is a static yet visually rich website built without JavaScript. It uses only HTML & CSS for layout, animations, and interactivity — plus a bonus 3D robot from Spline for that extra WOW factor 💫.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Ashwin-tech-N/Digital-IIF-Forms-Portal" target="police" class="group scroll-card armory-card" style="transition-delay: 0.1s;">
+                        <div class="luxury-img-container">
+                            <img src="images/image3.png" alt="image3.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.5rem; color: #e2e8f0; margin-bottom: 0.5rem;">Puducherry Police - Digital IIF Forms Portal</h3>
+                                <p class="card-description">This project, developed during a cybersecurity internship at the Puducherry Cyber Crime Police Station, delivers a solution to modernize the criminal investigation documentation process.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Ashwin-tech-N/Smart-Study-Planner" target="planner" class="group scroll-card armory-card" style="transition-delay: 0.2s;">
+                        <div class="luxury-img-container">
+                            <img src="images/image4.png" alt="image4.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.5rem; color: #e2e8f0; margin-bottom: 0.5rem;">🤖 IntellectoNova: AI Study Scheduler</h3>
+                                <p class="card-description">IntellectoNova is a smart study planner with a stunning UI. It's designed to help students organize their subjects and topics, and then leverage AI to create an optimized study plan with actionable recommendations.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Ashwin-tech-N/Property-Price-Predictor-A-Machine-Learning-Model" target="property" class="group scroll-card armory-card" style="transition-delay: 0.3s;">
+                        <div class="luxury-img-container">
+                            <img src="images/image5.png" alt="image5.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.5rem; color: #e2e8f0; margin-bottom: 0.5rem;">🏡 Property Price Predictor: A Machine Learning Model</h3>
+                                <p class="card-description">The primary objective of this project is to build a robust predictive model capable of estimating the sale price of residential properties. We leverage key housing attributes to uncover the drivers of property value in the dataset.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Ashwin-tech-N/-Feast-of-Ice-Fire" target="feast" class="group scroll-card armory-card" style="transition-delay: 0.4s;">
+                        <div class="luxury-img-container">
+                            <img src="images/image1.png" alt="image1.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.5rem; color: #e2e8f0; margin-bottom: 0.5rem;">🍰 Feast of Ice & Fire</h3>
+                                <p class="card-description">A cinematic, high-end interactive recipe web experience inspired by luxury gastronomy and immersive UI design.
+                                    Built with pure HTML, CSS, JavaScript, and Tailwind CSS, this project delivers a restaurant-grade digital experience — not a basic recipe page.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="section-padding" style="overflow: hidden;">
+            <div class="text-center reveal-up" style="margin-bottom: 4rem;">
+                <h2 class="rune-reveal" style="font-size: 3rem; color: #e2e8f0; margin-bottom: 1rem;">Credentials</h2>
+                <p class="text-label">Verified & Authenticated</p>
+                <div class="blade-swipe" style="width: 150px; margin: 0 auto;"></div>
+            </div>
+
+            <div style="width: 100%; position: relative;">
+                <div class="horizontal-scroll scroll-pad-landscape perspective-container">
+                    
+                    <div class="group scroll-card cert-card">
+                        <div class="luxury-img-container">
+                            <img src="certificate/certificate1.png" alt="certificate1.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.25rem; color: #e2e8f0;">Python for Data Science, AI & Development</h3>
+                                <p class="card-description">Issued by IBM and Coursera.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group scroll-card cert-card" style="transition-delay: 0.05s;">
+                        <div class="luxury-img-container">
+                            <img src="certificate/certificate2.png" alt="certificate2.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.25rem; color: #e2e8f0;">Introduction to Cybersecurity Careers</h3>
+                                <p class="card-description">Issued by IBM and Coursera.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group scroll-card cert-card" style="transition-delay: 0.1s;">
+                        <div class="luxury-img-container">
+                            <img src="certificate/certificate3.jpg" alt="certificate3.jpg" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.25rem; color: #e2e8f0;">Generative AI</h3>
+                                <p class="card-description">Issued by GUVI In SAWIT.AILearnathon Program</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group scroll-card cert-card" style="transition-delay: 0.15s;">
+                        <div class="luxury-img-container">
+                            <img src="certificate/certificate4.png" alt="certificate4.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.25rem; color: #e2e8f0;">Python</h3>
+                                <p class="card-description">Issued by GUVI</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group scroll-card cert-card" style="transition-delay: 0.2s;">
+                        <div class="luxury-img-container">
+                            <img src="certificate/certificate5.png" alt="certificate5.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.25rem; color: #e2e8f0;">AI For India 2.0</h3>
+                                <p class="card-description">Issued by GUVI Partnership with Skill India & NSDC.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group scroll-card cert-card" style="transition-delay: 0.25s;">
+                        <div class="luxury-img-container">
+                            <img src="certificate/certificate6.jpg" alt="certificate6.jpg" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.25rem; color: #e2e8f0;">introduction to penetration testing</h3>
+                                <p class="card-description">Issued by security blue team</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group scroll-card cert-card" style="transition-delay: 0.3s;">
+                        <div class="luxury-img-container">
+                            <img src="certificate/certificate7.png" alt="certificate7.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.25rem; color: #e2e8f0;">Cybersecurity Analyst Job Simulation</h3>
+                                <p class="card-description">Issued by TATA Partnership with Forage</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group scroll-card cert-card" style="transition-delay: 0.35s;">
+                        <div class="luxury-img-container">
+                            <img src="certificate/certificate8.png" alt="certificate8.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.25rem; color: #e2e8f0;">GenAI Powered Data Analytics Job Simulation</h3>
+                                <p class="card-description">Issued by TATA Partnership with Forage</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group scroll-card cert-card" style="transition-delay: 0.4s;">
+                        <div class="luxury-img-container">
+                            <img src="certificate/certificate9.png" alt="certificate9.png" class="placeholder-img">
+                            <div class="card-overlay">
+                                <h3 style="font-size: 1.25rem; color: #e2e8f0;">Google Could Workshop:Build AI App With Google gemini and firebase</h3>
+                                <p class="card-description">Issued by Google developer group SMVEC.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="arsenal" class="sticky-wrapper">
+            <div class="sticky-content">
+                <div class="md-text-left text-center">
+                    <h2 class="rune-reveal" style="font-size: 4rem; color: #e2e8f0; margin-bottom: 1.5rem;">The Arsenal</h2>
+                    <div class="blade-swipe" style="margin: 0 auto 1.5rem 0;"></div>
+                    <p class="text-label">Proficiency & Mastery</p>
+                </div>
+            </div>
+            
+            <div class="scroll-content">
+                <div class="reveal-up">
+                    <h3 style="color: #e2e8f0; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"></path><path d="M13 19l6-6"></path><path d="M16 16l4 4"></path><path d="M19 21l2-2"></path></svg> 
+                        Blade Work
+                    </h3>
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div class="group">
+                            <div class="flex justify-between text-label"><span>Python</span><span>96%</span></div>
+                            <div class="skill-bar-container"><div class="skill-bar" style="--w: 96%;"><div class="skill-tip"></div></div></div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between text-label"><span>Java</span><span>60%</span></div>
+                            <div class="skill-bar-container"><div class="skill-bar" style="--w: 60%;"><div class="skill-tip"></div></div></div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between text-label"><span>HTML/CSS/JS</span><span>98%</span></div>
+                            <div class="skill-bar-container"><div class="skill-bar" style="--w: 98%;"><div class="skill-tip"></div></div></div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between text-label"><span>API Integration</span><span>76%</span></div>
+                            <div class="skill-bar-container"><div class="skill-bar" style="--w: 76%;"><div class="skill-tip"></div></div></div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between text-label"><span>MySQL/MongoDB</span><span>59%</span></div>
+                            <div class="skill-bar-container"><div class="skill-bar" style="--w: 59%;"><div class="skill-tip"></div></div></div>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between text-label"><span>Git/GitHub</span><span>65%</span></div>
+                            <div class="skill-bar-container"><div class="skill-bar" style="--w: 65%;"><div class="skill-tip"></div></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-up">
+                    <h3 style="color: #e2e8f0; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 20c-3.3 0-6-2.7-6-6V4h-4v10c0 3.3-2.7 6-6 6"></path><path d="M4 20h16"></path></svg>
+                        Foundation
+                    </h3>
+                    <div class="grid-2" style="gap: 1rem;">
+                        <div class="tech-box">
+                            <svg class="icon" style="color: #64748b;" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                            <div>
+                                <h4 style="font-size: 0.9rem; color: #e2e8f0;">MongoDB / MySQL</h4>
+                                <div class="tech-line"></div>
+                            </div>
+                        </div>
+                        <div class="tech-box">
+                            <svg class="icon" style="color: #64748b;" viewBox="0 0 24 24">
+                                <path d="M11.25 1C5.6 1 5.6 3.5 5.6 3.5V5.5H11.25C12.35 5.5 13.25 6.4 13.25 7.5V10H4.25C2 10 2 12.25 2 12.25V16.5C2 18.75 4.5 18.75 4.5 18.75H12.75C18.4 18.75 18.4 16.25 18.4 16.25V14.25H12.75C11.65 14.25 10.75 13.35 10.75 12.25V9.75H19.75C22 9.75 22 7.5 22 7.5V3.25C22 1 19.5 1 19.5 1H11.25z M8.4 2.85C9.15 2.85 9.75 3.45 9.75 4.2C9.75 4.95 9.15 5.55 8.4 5.55C7.65 5.55 7.05 4.95 7.05 4.2C7.05 3.45 7.65 2.85 8.4 2.85z M15.6 14.2C16.35 14.2 16.95 14.8 16.95 15.55C16.95 16.3 16.35 16.9 15.6 16.9C14.85 16.9 14.25 16.3 14.25 15.55C14.25 14.8 14.85 14.2 15.6 14.2z" fill="currentColor"/>
+                            </svg>
+                            <div>
+                                <h4 style="font-size: 0.9rem; color: #e2e8f0;">Python</h4>
+                                <div class="tech-line"></div>
+                            </div>
+                        </div>
+                        <div class="tech-box">
+                            <svg class="icon" style="color: #64748b;" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline><line x1="12.5" y1="4" x2="11.5" y2="20"></line></svg>
+                            <div>
+                                <h4 style="font-size: 0.9rem; color: #e2e8f0;">Web Development</h4>
+                                <div class="tech-line"></div>
+                            </div>
+                        </div>
+                        <div class="tech-box">
+                            <svg class="icon" style="color: #64748b;" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+                            <div>
+                                <h4 style="font-size: 0.9rem; color: #e2e8f0;">Git / GitHub</h4>
+                                <div class="tech-line"></div>
+                            </div>
+                        </div>
+                        <div class="tech-box">
+                            <svg class="icon" style="color: #64748b;" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                            <div>
+                                <h4 style="font-size: 0.9rem; color: #e2e8f0;">Java</h4>
+                                <div class="tech-line"></div>
+                            </div>
+                        </div>
+                        <div class="tech-box">
+                            <svg class="icon" style="color: #64748b;" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                            <div>
+                                <h4 style="font-size: 0.9rem; color: #e2e8f0;">API Keys</h4>
+                                <div class="tech-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="alchemy-segment" class="reveal-up">
+                    <h3 style="color: #e2e8f0; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        Apparatus
+                    </h3>
+                    <ul style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <li class="flex items-center" style="gap: 1rem; color: #64748b;">
+                            <div style="width: 8px; height: 8px; border: 1px solid #64748b; transform: rotate(45deg);"></div>
+                            <span class="text-label" style="margin: 0;">Figma & UI Systems</span>
+                        </li>
+                        <li class="flex items-center" style="gap: 1rem; color: #64748b;">
+                            <div style="width: 8px; height: 8px; border: 1px solid #64748b; transform: rotate(45deg);"></div>
+                            <span class="text-label" style="margin: 0;">VS-Code, Cursor, Antigravity</span>
+                        </li>
+                        <li class="flex items-center" style="gap: 1rem; color: #64748b;">
+                            <div style="width: 8px; height: 8px; border: 1px solid #64748b; transform: rotate(45deg);"></div>
+                            <span class="text-label" style="margin: 0;">Google Collab</span>
+                        </li>
+                        <li class="flex items-center" style="gap: 1rem; color: #64748b;">
+                            <div style="width: 8px; height: 8px; border: 1px solid #64748b; transform: rotate(45deg);"></div>
+                            <span class="text-label" style="margin: 0;">Anaconda</span>
+                        </li>
+                        <li class="flex items-center" style="gap: 1rem; color: #64748b;">
+                            <div style="width: 8px; height: 8px; border: 1px solid #64748b; transform: rotate(45deg);"></div>
+                            <span class="text-label" style="margin: 0;">MongoDB</span>
+                        </li>
+                        <li class="flex items-center" style="gap: 1rem; color: #64748b;">
+                            <div style="width: 8px; height: 8px; border: 1px solid #64748b; transform: rotate(45deg);"></div>
+                            <span class="text-label" style="margin: 0;">Git/GitHub</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding relative quote-bg" style="display: flex; justify-content: center; align-items: center; text-align: center;">
+            <div class="container reveal-up">
+                <svg class="icon-lg" style="margin: 0 auto 1.5rem auto; color: #475569;" viewBox="0 0 24 24"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path></svg>
+                <blockquote style="font-family: var(--font-serif); font-size: 2rem; color: #e2e8f0; line-height: 1.4;">
+                    "Chaos isn't a pit. Chaos is a ladder. And I build the rungs."
+                </blockquote>
+                <div class="blade-swipe" style="width: 100px; margin-top: 2rem;"></div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding stone-border-box">
+            
+            <div id="sword-impact-area">
+                <div class="absolute" style="bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 50px; pointer-events: none; z-index: 50;">
+                    <div class="spark spark-land" style="--tx: -50px; --ty: -40px; --r: -45deg; left: 50%; bottom: 0;"></div>
+                    <div class="spark spark-land" style="--tx: 50px; --ty: -40px; --r: 45deg; left: 50%; bottom: 0;"></div>
+                    <div class="spark spark-land" style="--tx: -30px; --ty: -60px; --r: -25deg; left: 50%; bottom: 0;"></div>
+                    <div class="spark spark-land" style="--tx: 30px; --ty: -60px; --r: 25deg; left: 50%; bottom: 0;"></div>
+                    <div class="spark spark-land" style="--tx: 0px; --ty: -80px; --r: 0deg; left: 50%; bottom: 0;"></div>
+                </div>
+
+                <svg class="impact-cracks" viewBox="0 0 200 60" fill="none" stroke="#4a5568" stroke-width="2">
+                    <path d="M100 30 L80 40 M100 30 L120 40 M100 30 L90 50 M100 30 L110 50 M100 30 L70 30 M100 30 L130 30 M60 35 L80 40 M140 35 L120 40" stroke-linecap="round" />
+                    <circle cx="100" cy="30" r="15" stroke="none" fill="#0f1115" />
+                </svg>
+
+                <svg class="static-sword-svg" viewBox="0 0 100 250">
+                    <defs>
+                        <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#94a3b8;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="30" y="0" width="40" height="6" fill="#475569" />
+                    <rect x="42" y="6" width="16" height="50" fill="#334155" />
+                    <path d="M20 56 L80 56 L80 64 L50 70 L20 64 Z" fill="#475569" />
+                    <path d="M35 64 L65 64 L65 230 L50 250 L35 230 Z" fill="url(#bladeGrad)" />
+                    <line x1="50" y1="70" x2="50" y2="200" stroke="#0f1115" stroke-width="2" />
+                </svg>
+            </div>
+
+            <div class="container text-center relative z-10">
+                <div class="reveal-up">
+                    <h2 class="rune-reveal" style="font-size: 3.5rem; color: #e2e8f0; margin-bottom: 1rem;">Send A Raven</h2>
+                    <p class="text-sub" style="margin-bottom: 3rem;">The gates are open for worthy alliances.</p>
+                    
+                    <form id="ravenForm" class="raven-form" onsubmit="sendRaven(event)">
+                        <input type="text" name="from_name" class="raven-input" placeholder="NAME" required>
+                        <input type="email" name="from_email" class="raven-input" placeholder="EMAIL ID" required>
+                        <input type="tel" name="phone" class="raven-input" placeholder="PHONE NUMBER">
+                        <textarea name="message" class="raven-input" placeholder="DESCRIPTION" required></textarea>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="frost-btn">SEND RAVEN</button>
+                        </div>
+                    </form>
+
+                    <div class="social-links">
+                        <a href="https://github.com/Ashwin-tech-N" class="social-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        <a href="https://www.linkedin.com/in/ashwin-n-239440323/" class="social-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        <a href="https://www.instagram.com/royal.ashwin/" class="social-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer style="padding: 2rem 0; text-align: center; border-top: 1px solid #1e293b; background: #050505;">
+            <p class="text-label" style="font-size: 0.7rem;">© 2025 House Stark. Winter is Coding.</p>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
