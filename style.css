@@ -67,10 +67,16 @@ ul { list-style: none; }
     .hidden-mobile { display: block; }
 }
 @media(max-width: 767px) {
-    .hidden-mobile { display: none; }
+    #main-nav { display: none !important; }
+    .hidden-mobile { display: none !important; }
     .grid-2 { gap: 2rem; }
 }
-
+#main-nav {
+    display: block !important;
+    padding: 1rem;
+    mix-blend-mode: normal;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+}
 nav {
     padding: 1.5rem;
     mix-blend-mode: difference;
@@ -430,4 +436,104 @@ nav.entered { transform: translateY(0); opacity: 1; }
 textarea.raven-input {
     resize: vertical;
     min-height: 120px;
+}
+
+
+@media (max-width: 767px) {
+    #main-nav {
+        display: none;
+    }
+    
+    header#home {
+        padding: 0 1rem;
+        text-align: center;
+        padding-top: 2rem;
+    }
+    
+    .text-hero {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+    }
+    
+    .scroll-pad-portrait,
+    .scroll-pad-landscape {
+        padding: 2rem 1rem 4rem 1rem;
+        scroll-padding-left: 1rem;
+    }
+    
+    .horizontal-scroll {
+        padding-left: 1rem !important;
+        scroll-padding-left: 1rem !important;
+    }
+    
+    .armory-card {
+        min-width: 280px;
+        width: 280px;
+    }
+    
+    .cert-card {
+        min-width: 320px;
+        width: 320px;
+    }
+    
+    .sticky-wrapper {
+        flex-direction: column;
+    }
+    
+    .sticky-content {
+        position: relative;
+        height: auto;
+        width: 100%;
+        padding: 3rem 1.5rem;
+    }
+    
+    .scroll-content {
+        width: 100%;
+        padding: 2rem 1.5rem;
+        gap: 4rem;
+        min-height: auto;
+    }
+    
+    .raven-form {
+        padding: 0 1rem;
+    }
+    
+    .grid-2 {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .armory-card {
+        min-width: 260px;
+        width: 260px;
+    }
+    
+    .cert-card {
+        min-width: 300px;
+        width: 300px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .armory-card {
+        min-width: 380px;
+        width: 380px;
+    }
+    
+    .cert-card {
+        min-width: 420px;
+        width: 420px;
+    }
+}
+
+@media (max-width: 767px) {
+    #armory-scroll,
+    #credentials-scroll {
+        scroll-snap-type: x proximity;
+    }
+    
+    #armory-scroll .scroll-card:first-child,
+    #credentials-scroll .scroll-card:first-child {
+        scroll-margin-left: 1rem;
+    }
 }
