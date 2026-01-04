@@ -56,6 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     initCarousels();
+    
+    initMobileTouchSupport();
+    
+    scrollToFirstCardOnMobile();
 });
 
 function triggerArrival() {
@@ -116,9 +120,96 @@ function setupObserver() {
     });
 }
 
-window.addEventListener('scroll', () => {
-    handleMessengerSword();
-    handleScrollWaves();
+
+let ticking = false;
+
+function onScroll() {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            handleMessengerSword();
+            handleScrollWaves();
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+
+
+function initMobileTouchSupport() {
+    const scrollContainers = document.querySelectorAll('.horizontal-scroll');
+    
+    scrollContainers.forEach(container => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.classList.add('active');
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.classList.remove('active');
+        });
+        
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.classList.remove('active');
+        });
+        
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+        
+        container.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        }, { passive: true });
+        
+        container.addEventListener('touchend', () => {
+            isDown = false;
+        });
+        
+        container.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        }, { passive: true });
+    });
+}
+
+
+function scrollToFirstCardOnMobile() {
+    if (window.innerWidth > 767) return; 
+    
+    const armoryScroll = document.getElementById('armory-scroll');
+    const credentialsScroll = document.getElementById('credentials-scroll');
+    
+    setTimeout(() => {
+        if (armoryScroll) {
+            armoryScroll.scrollLeft = 0;
+        }
+        if (credentialsScroll) {
+            credentialsScroll.scrollLeft = 0;
+        }
+    }, 100);
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 767) {
+        setTimeout(scrollToFirstCardOnMobile, 300);
+    }
 });
 
 function handleMessengerSword() {
@@ -185,8 +276,6 @@ function initCarousels() {
                 cards.forEach(card => {
                     const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
                     const dist = Math.abs(scrollCenter - cardCenter);
-                    
-                  
                     
                     const maxDist = viewportCenter * 1.2; 
                     
